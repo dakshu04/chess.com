@@ -100,24 +100,25 @@ const getPieceUnicode = (piece) => {
     return unicode[piece.type] || "";
 };
 
+
 socket.on("playerRole", function(role) {
     playerRole = role;
     renderBoard();
-});
+})
 
 socket.on("spectatorRole", function () {
     playerRole = null;
     renderBoard();
-});
+})
 
 socket.on("boardState", function(fen){
     chess.load(fen);
     renderBoard();
-});
+})
 
 socket.on("move", function(move) {
     chess.move(move);
     renderBoard();
-});
+})
 
 renderBoard();
